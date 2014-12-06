@@ -1,0 +1,53 @@
+#!/bin/bash
+# GitLab push event XMPP notification web hook
+#
+# chkconfig: - 90 10
+# description: gitlab-webhook-xmpp
+# processname: gitlab-webhook-xmpp
+# pidfile: /var/run/gitlab-webhook-xmpp.pid
+
+. /etc/rc.d/init.d/functions
+
+name=gitlab-webhook-xmpp
+
+#####################
+#BEGIN CONFIG SECTION
+
+#Location of configuration file
+cfg=/etc/gitlab-webhook-xmpp.cfg
+
+#Pid file to track start/stop of process
+pidfile=/var/run/gitlab-webhook-xmpp.pid
+
+#Run as user
+runasuser=nobody
+runasgroup=nobody
+
+#END CONFIG SECTION
+#####################
+
+start() {
+    echo "Starting gitlab-webhook-xmpp"
+    twistd --logfile /dev/null --pidfile $pidfile --gid=$runasgroup --uid=$runasuser gitlab-webhook-xmpp -c $cfg && echo "gitlab-webhook-xmpp started" && exit 0
+    echo "Failed to start gitlab-webhook-xmpp"
+    exit 1
+}
+
+stop() {
+    echo "Stopping gitlab-webhook-xmpp"
+    killproc -p $pidfile "$prog"
+    exit $?
+}
+
+case "$1" in
+    start)
+    start
+    ;;
+    stop)
+    stop
+    ;;
+    *)
+    echo "Usage: gitlab-webhook-xmpp {start|stop}"
+esac
+
+exit 1

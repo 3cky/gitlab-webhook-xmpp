@@ -1,0 +1,5 @@
+/build/
+/.settings/
+/twisted/plugins/dropin.cache
+/xmpp_webhook.ini
+*.pyc

@@ -1,0 +1,5 @@
+{{ push.user_name }} pushed {{ push.total_commits_count }} {% trans count=push.total_commits_count %}commit{% pluralize %}commits{% endtrans %} to branch _{{ push.ref }}_ of _{{ push.repository.name }}_ <{{ push.repository.homepage }}>:
+{% for commit in push.commits %}
+*{% print commit.id[:8] %}* <{{ commit.url }}>
+{{commit.message }}
+{%- endfor %}

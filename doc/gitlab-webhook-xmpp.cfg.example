@@ -1,0 +1,13 @@
+[http]
+port=8080
+
+[xmpp]
+jid=nick@jabber.example.com
+password=mypassword
+nickname=git-commits
+
+[message]
+#template=message.txt
+
+[notifications]
+test@conference.jabber.example.com=*/test-git-project1.git,*/test-git-project2.git

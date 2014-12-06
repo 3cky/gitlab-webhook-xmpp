@@ -1,0 +1,47 @@
+{
+  "before": "34c95142d13e0d8cf9cbd72111616caab47d7b21",
+  "after": "34a6a4b2611e589098ef0705ea2ce01890f7ca48",
+  "ref": "refs/heads/master",
+  "user_id": 1,
+  "user_name": "3cky",
+  "project_id": 1,
+  "repository": {
+    "name": "Test Git Project",
+    "url": "git@git.example.com:root/test-git-project.git",
+    "description": "Test Git Project",
+    "homepage": "http://git.example.com/root/test-git-project"
+  },
+  "commits": [
+    {
+      "id": "34a6a4b2611e589098ef0705ea2ce01890f7ca48",
+      "message": "Тест №3.\n",
+      "timestamp": "2014-12-02T18:18:52+03:00",
+      "url": "http://git.example.com/root/test-git-project/commit/34a6a4b2611e589098ef0705ea2ce01890f7ca48",
+      "author": {
+        "name": "Victor Antonovich",
+        "email": "victor@antonovich.me"
+      }
+    },
+    {
+      "id": "7670f569aaff68b9f2c8c812af48b857e818dcd8",
+      "message": "Commit 2.\n",
+      "timestamp": "2014-11-22T19:44:44+03:00",
+      "url": "http://git.example.com/root/test-git-project/commit/7670f569aaff68b9f2c8c812af48b857e818dcd8",
+      "author": {
+        "name": "Victor Antonovich",
+        "email": "victor@antonovich.me"
+      }
+    },
+    {
+      "id": "34c95142d13e0d8cf9cbd72111616caab47d7b21",
+      "message": "Commit 1.\n",
+      "timestamp": "2014-11-22T19:27:44+03:00",
+      "url": "http://git.example.com/root/test-git-project/commit/34c95142d13e0d8cf9cbd72111616caab47d7b21",
+      "author": {
+        "name": "Victor Antonovich",
+        "email": "victor@antonovich.me"
+      }
+    }
+  ],
+  "total_commits_count": 3
+}

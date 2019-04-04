@@ -33,7 +33,7 @@ Multiple matches are allowed.
 
 Run gitlab-webhook-xmpp by command `twistd -n gitlab-webhook-xmpp -c /path/to/config/file.cfg`
 
-## Setup GitLab web hook
+## Set up GitLab web hook
 
 Open GitLab project settings -> Web Hooks, add URL of server running gitlab-webhook-xmpp and
 check "Push events" as trigger. Press "Add Web Hook" button. You could test added web hook

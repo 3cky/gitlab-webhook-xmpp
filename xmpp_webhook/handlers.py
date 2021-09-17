@@ -24,7 +24,7 @@ class WebHookHandler(Resource):
     def render_POST(self, request):
         pushData = None
         try:
-            pushData = json.loads(request.content.getvalue())
+            pushData = json.loads(request.content.read().decode("utf-8"))
         except (ValueError, KeyError, TypeError) as e:
             print "Can't parse request:", e
             return 'Invalid request'

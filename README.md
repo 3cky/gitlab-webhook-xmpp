@@ -7,7 +7,7 @@ using [Twisted](https://twistedmatrix.com/trac/) framework.
 
 ## Installation
 
-gitlab-webhook-xmpp runs on Python 2.7. Clone the repo in the directory of your choice using git:
+gitlab-webhook-xmpp runs on Python 3.6 or later. Clone the repo in the directory of your choice using git:
 
 `git clone https://github.com/3cky/gitlab-webhook-xmpp`
 

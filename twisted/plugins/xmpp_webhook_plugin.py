@@ -7,7 +7,7 @@ Created on 01-Dec-2014
 
 import os
 
-from zope.interface import implements
+from zope.interface import implementer
 
 from twisted.python import usage
 from twisted.plugin import IPlugin
@@ -18,7 +18,7 @@ from twisted.application import internet, service
 from twisted.words.protocols.jabber.jid import JID
 
 from wokkel.client import XMPPClient
-from ConfigParser import ConfigParser
+import configparser
 from jinja2 import Environment, PackageLoader, FileSystemLoader
 
 from xmpp_webhook.handlers import MUCHandler, WebHookHandler
@@ -31,8 +31,8 @@ class Options(usage.Options):
     optParameters = [["config", "c", None, 'Configuration file name']]
 
 
+@implementer(IServiceMaker, IPlugin)
 class ServiceManager(object):
-    implements(IServiceMaker, IPlugin)
     tapname = "gitlab-webhook-xmpp"
     description = "GitLab push event XMPP notification web hook."
     options = Options
@@ -50,7 +50,7 @@ class ServiceManager(object):
             raise ValueError('Configuration file not found:', cfgFileName)
 
         # read configuration file
-        cfg = ConfigParser()
+        cfg = configparser.ConfigParser()
         cfg.read(cfgFileName)
 
         # create Twisted application
@@ -82,7 +82,7 @@ class ServiceManager(object):
 
         # create web hook handler
         rootHttpResource = Resource()
-        rootHttpResource.putChild('', WebHookHandler(self))
+        rootHttpResource.putChild(b'', WebHookHandler(self))
         site = server.Site(rootHttpResource)
         httpPort = cfg.getint('http', 'port') if cfg.has_option('http', 'port') else DEFAULT_HTTP_PORT
         httpServer = internet.TCPServer(httpPort, site)

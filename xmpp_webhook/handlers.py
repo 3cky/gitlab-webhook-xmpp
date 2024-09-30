@@ -26,7 +26,7 @@ class WebHookHandler(Resource):
         try:
             pushData = json.loads(request.content.read().decode("utf-8"))
         except (ValueError, KeyError, TypeError) as e:
-            print "Can't parse request:", e
+            print("Can't parse request:", e)
             return 'Invalid request'
         if pushData:
             self.serviceManager.notifyPush(pushData)

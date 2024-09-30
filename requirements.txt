@@ -1,4 +1,4 @@
 twisted
-wokkel
+-e git+https://github.com/ralphm/wokkel.git@remove-py2-compat#egg=wokkel
 jinja2
 jinja2_pluralize

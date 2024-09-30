@@ -30,7 +30,7 @@ class WebHookHandler(Resource):
             return 'Invalid request'
         if pushData:
             self.serviceManager.notifyPush(pushData)
-        return 'OK'
+        return b'OK'
 
 
 class MUCHandler(MUCClient):
